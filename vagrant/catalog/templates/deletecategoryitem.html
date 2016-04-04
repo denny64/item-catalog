@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "header.html" %}
+
+
+
+
+
+<form class="ui form" method="POST">
+  <h2> Are you sure you want to delete {{item.name}}? </h2></br>
+  <button class="ui red button" type="submit">Delete</button>
+</form>
+<a href='{{url_for('showCategoryItems', category_id=category_id)}}'>
+  <button class="ui button">Cancel</button>
+</a>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <title>Catalog App</title>
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='semantic.min.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+    <script   src="https://code.jquery.com/jquery-2.2.2.min.js"   integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI="   crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='semantic.min.js') }}"></script>
+	</head>
+	<body>
+		<div class="ui one column stackable grid container" id="main-container">
+			{% block content %}
+			{% endblock %}
+		</div>
+	</body>
+  <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+</html>

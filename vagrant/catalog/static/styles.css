@@ -1,0 +1,21 @@
+.top-header-menu {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  background: black;
+  height: 60px;
+}
+button.ui.green.login {
+  float: right;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+button.ui.blue.home {
+  float: right;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+div#main-container {
+  margin-top: 100px;
+}
