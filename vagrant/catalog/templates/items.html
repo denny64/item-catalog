@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-{% include "header.html" %}
+{% if login %}
+  {% include "unauth-header.html" %}
+{% else %}
+  {% include "header.html" %}
+{% endif %}
 
 <div class="column">
     <div class="ui segment">
