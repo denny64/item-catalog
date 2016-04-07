@@ -144,10 +144,11 @@ def newCategoryItem(category_id):
 # Edit an item
 @app.route('/catalog/<int:category_id>/edit/<int:item_id>', methods=['GET', 'POST'])
 def editCategoryItem(category_id, item_id):
-    if login_session['user_id'] != category.user_id:
-        return "<script>function myFunction() {alert('You are not authorized to edit menu items to this restaurant. Please create your own restaurant in order to edit items.');}</script><body onload='myFunction()''>"
 
     category = session.query(Category).filter_by(id=category_id).one()
+
+    if login_session['user_id'] != category.user_id:
+        return "<script>function myFunction() {alert('You are not authorized to edit menu items to this restaurant. Please create your own restaurant in order to edit items.');}</script><body onload='myFunction()''>"
     editedItem = session.query(CategoryItem).filter_by(id=item_id).one()
 
     if request.method == 'POST':
@@ -171,10 +172,12 @@ def editCategoryItem(category_id, item_id):
 def deleteCategoryItem(category_id, item_id):
 
     category = session.query(Category).filter_by(id=category_id).one()
-    itemToDelete = session.query(CategoryItem).filter_by(id=item_id).one()
 
     if login_session['user_id'] != category.user_id:
         return "<script>function myFunction() {alert('You are not authorized to delete menu items to this restaurant. Please create your own restaurant in order to delete items.');}</script><body onload='myFunction()''>"
+
+    itemToDelete = session.query(CategoryItem).filter_by(id=item_id).one()
+    
     if request.method == 'POST':
         session.delete(itemToDelete)
         session.commit()
